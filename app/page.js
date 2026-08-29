@@ -1,5 +1,3 @@
-export const dynamic="force-dynamic";export const revalidate=0;
-import ToolSearch from "../components/ToolSearch";
 const sections=[
 ["Crafting & Visual Tools",[
 ["▦","Crafting Recipes","Find recipes quickly with a 3×3 grid.","/crafting"],
@@ -31,15 +29,23 @@ const sections=[
 ["⚔","Enchant Command","Generate quick /enchant commands.","/enchant-generator"]
 ]]
 ];
-export default function Home(){const count=sections.reduce((n,s)=>n+s[1].length,0);return <main className="directoryHome">
- <section className="compactHero"><div className="wrap">
-  <div className="homeTitleRow"><div><h1>Minecraft Tools</h1><h2>Minecraft crafting, generators, calculators and much more!</h2></div><a className="communityButton" href="/community">Community Content →</a></div>
-  <p className="welcome">Welcome to MineTools. Free browser-based tools for Minecraft Java and Bedrock players, map makers and server owners.</p>
-  <ToolSearch/>
- </div></section>
- <section className="directorySection" id="tools"><div className="wrap">
-  <div className="directoryMeta"><strong>{count} tools available</strong><span>No signup required to use generators</span></div>
-  {sections.map(s=><section className="directoryGroup" key={s[0]}><h2>{s[0]}</h2><div className="directoryGrid">{s[1].map(t=><a className="directoryItem" href={t[3]} key={t[1]}><span className="directoryIcon">{t[0]}</span><span className="directoryCopy"><strong>{t[1]}</strong><small>{t[2]}</small></span><span className="directoryArrow">›</span></a>)}</div></section>)}
- </div></section>
- <section className="homeBottom"><div className="wrap homeBottomGrid"><div><h2>Community Content</h2><p>Save drafts, remix creations and browse the community foundation.</p><a href="/community">Open Community →</a></div><div><h2>Minecraft Database</h2><p>Browse item, mob and recipe reference pages with stable SEO-friendly URLs.</p><a href="/items">Open Database →</a></div></div></section>
-</main>}
+
+export const metadata={
+ title:"Minecraft Tools & Generators",
+ description:"Free Minecraft crafting tools, command generators, calculators and references for Java and Bedrock Edition."
+};
+
+export default function Home(){
+ const count=sections.reduce((n,s)=>n+s[1].length,0);
+ return <main className="directoryHome">
+  <section className="compactHero"><div className="wrap">
+   <div className="homeTitleRow"><div><h1>Minecraft Tools</h1><h2>Minecraft crafting, generators, calculators and much more!</h2></div><a className="communityButton" href="/community">Community Content →</a></div>
+   <p className="welcome">Welcome to MineTools. Free browser-based tools for Minecraft Java and Bedrock players, map makers and server owners.</p>
+  </div></section>
+  <section className="directorySection" id="tools"><div className="wrap">
+   <div className="directoryMeta"><strong>{count} tools available</strong><span>No signup required to use generators</span></div>
+   {sections.map(s=><section className="directoryGroup" key={s[0]}><h2>{s[0]}</h2><div className="directoryGrid">{s[1].map(t=><a className="directoryItem" href={t[3]} key={t[1]}><span className="directoryIcon">{t[0]}</span><span className="directoryCopy"><strong>{t[1]}</strong><small>{t[2]}</small></span><span className="directoryArrow">›</span></a>)}</div></section>)}
+  </div></section>
+  <section className="homeBottom"><div className="wrap homeBottomGrid"><div><h2>Community Content</h2><p>Save drafts, remix creations and browse the community foundation.</p><a href="/community">Open Community →</a></div><div><h2>Minecraft Database</h2><p>Browse item, mob and recipe reference pages with stable SEO-friendly URLs.</p><a href="/items">Open Database →</a></div></div></section>
+ </main>
+}
