@@ -1,1 +1,0 @@
-export default function robots(){return {rules:[{userAgent:"*",allow:"/",disallow:["/saved"]}],sitemap:"https://minetools.io/sitemap.xml",host:"https://minetools.io"}}
