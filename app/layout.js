@@ -1,33 +1,28 @@
 import "./globals.css";
 
-export const metadata = {
-  metadataBase: new URL("https://minetools.io"),
-  title: { default: "Minecraft Tools & Generators for Java & Bedrock | MineTools", template: "%s | MineTools" },
-  description: "Free Minecraft tools and generators for Java and Bedrock Edition. Create commands, calculate coordinates, build effects, colors, server MOTDs and more.",
-  applicationName: "MineTools",
-  category: "games",
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
-  openGraph: { title: "Minecraft Tools & Generators | MineTools", description: "Free browser-based Minecraft generators, command tools and calculators.", url: "https://minetools.io", siteName: "MineTools", type: "website" },
-  twitter: { card: "summary_large_image", title: "Minecraft Tools & Generators | MineTools", description: "Free Minecraft generators, command tools and calculators." }
+export const metadata={
+  metadataBase:new URL("https://minetools.io"),
+  title:{default:"Minecraft Tools & Generators | MineTools",template:"%s | MineTools"},
+  description:"Free Minecraft generators, crafting tools, calculators and command editors for Java and Bedrock Edition.",
+  robots:{index:true,follow:true}
 };
 
-const websiteSchema={"@context":"https://schema.org","@type":"WebSite",name:"MineTools",url:"https://minetools.io/",description:"Free Minecraft tools, generators and calculators for Java and Bedrock Edition."};
-
-const quick=[
-["Crafting","/crafting"],["Custom Crafting","/custom-crafting"],["Flat World","/flat-world-generator"],["Enchant Calculator","/enchant-calculator"],["Armor Color","/armor-color"],["Firework","/firework-generator"],["Banners","/banner-generator"],["Shields","/shield-generator"],["Mob Generator","/mob-generator"],["Loot Tables","/loot-table-generator"],["Potions","/potion-generator"],["Beacon Color","/beacon-color"],["Coordinates","/coordinate-calculator"],["Target Selector","/target-selector"],["Color Codes","/color-codes"],["JSON Text","/json-text-generator"],["Title","/title-generator"],["Sign","/sign-generator"],["Book","/book-generator"],["Tellraw","/tellraw-generator"],["Server MOTD","/motd-generator"]
+const menu=[
+["Skin Grabber","/skin-grabber"],["Crafting","/crafting"],["Custom crafting","/custom-crafting"],["Flat world","/flat-world-generator"],["Enchant calculator","/enchant-calculator"],["Armor color","/armor-color"],["Firework crafting","/firework-generator"],["Banners crafting","/banner-generator"],["Shield crafting","/shield-generator"],["Mobs Generator","/mob-generator"],["Loot tables","/loot-table-generator"],["Custom potions","/potion-generator"],["Beacon color","/beacon-color"],["Coordinate Calculator","/coordinate-calculator"],["Target Selector","/target-selector"],["Color codes","/color-codes"],["JSON Text Component","/json-text-generator"],["Title generator","/title-generator"],["Sign generator","/sign-generator"],["Book editor","/book-generator"],["/tellraw editor","/tellraw-generator"],["Custom server MOTD","/motd-generator"]
 ];
 
-export default function RootLayout({children}) {
+export default function RootLayout({children}){
  return <html lang="en"><body>
-  <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(websiteSchema)}}/>
-  <header className="siteHeader">
-   <div className="wrap headerInner">
-    <a className="brand" href="/" aria-label="MineTools home"><span className="brandCube">M</span><span>MineTools</span></a>
-    <nav className="topNav" aria-label="Main navigation"><a href="/community">Community</a><a href="/items">Database</a><a href="/saved">Saved</a></nav>
-   </div>
-   <div className="toolStrip"><div className="wrap toolStripInner">{quick.map(x=><a key={x[1]} href={x[1]}>{x[0]}</a>)}</div></div>
-  </header>
-  {children}
-  <footer className="footer"><div className="wrap footerInner"><div><strong>MineTools</strong><br/><span>Free Minecraft tools & generators.</span></div><div className="footerLinks"><a href="/">Home</a><a href="/community">Community</a><a href="/items">Database</a><a href="/sitemap.xml">Sitemap</a></div></div><div className="wrap legal">MineTools is an independent utility site and is not an official Minecraft product. It is not approved by or associated with Mojang or Microsoft.</div></footer>
+  <header className="classicHeader"><div className="pixelBand"></div><a className="classicLogo" href="/" aria-label="MineTools home"><span className="logoMain">MINECRAFT</span><span className="logoSub">MINE<span>TOOLS</span></span></a></header>
+  <div className="classicShell">
+   <aside className="classicSidebar">
+    <div className="loginBox"><div className="sideTitle">LOG IN</div><input placeholder="Login" aria-label="Login"/><input placeholder="Password" type="password" aria-label="Password"/><button type="button">Log in</button><div className="loginLinks"><a href="/saved">Saved drafts</a></div></div>
+    <div className="sideTitle communityTitle">COMMUNITY CONTENT</div>
+    <nav className="classicMenu" aria-label="Minecraft tools">{menu.map(([label,href])=><a key={href} href={href}>{label}</a>)}</nav>
+    <a className="galleryLink" href="/community">PUBLIC GALLERY</a>
+   </aside>
+   <main className="classicMain">{children}</main>
+  </div>
+  <footer className="classicFooter"><div>© MineTools — tools for Minecraft made for players.</div><div><a href="/community">Community</a> · <a href="/items">Database</a> · <a href="/versions">Versions</a> · <a href="/sitemap.xml">Sitemap</a></div><small>MineTools is independent and is not affiliated with Mojang or Microsoft.</small></footer>
  </body></html>
 }
