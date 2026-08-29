@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
           <div className="wrap headerInner">
             <a className="brand" href="/" aria-label="MineTools home"><span className="brandCube">M</span><span>MineTools</span></a>
             <nav className="topNav" aria-label="Main navigation">
-              <a href="/#tools">Tools</a><a href="/mob-generator">Generators</a><a href="/tellraw-generator">Commands</a><a href="/#about">About</a>
+              <a href="/#tools">Tools</a><a href="/items">Database</a><a href="/versions">Versions</a><a href="/community">Community</a>
             </nav>
           </div>
         </header>
@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
         <footer className="footer">
           <div className="wrap footerInner">
             <div><strong>MineTools</strong><br/><span>Free Minecraft tools and generators.</span></div>
-            <div className="footerLinks"><a href="/">Home</a><a href="/#tools">Tools</a><a href="/sitemap.xml">Sitemap</a></div>
+            <div className="footerLinks"><a href="/">Home</a><a href="/#tools">Tools</a><a href="/items">Database</a><a href="/community">Community</a><a href="/sitemap.xml">Sitemap</a></div>
           </div>
           <div className="wrap legal">MineTools is an independent utility site and is not an official Minecraft product. It is not approved by or associated with Mojang or Microsoft.</div>
         </footer>
