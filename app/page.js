@@ -6,7 +6,7 @@ function PixelIcon({type}){
 }
 
 export default function Home(){
- return <div className="mtHome">
+ return <div className="mtHome benchmarkHome">
   <h1>Minecraft Tools</h1>
   <h2>Minecraft crafting, enchant calculator, firework crafting, flat world generator and much more!</h2>
   <p>Welcome on MineTools!</p>
