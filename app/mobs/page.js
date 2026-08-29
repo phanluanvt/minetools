@@ -1,3 +1,0 @@
-import {mobs} from "../../data/reference";
-export const metadata={title:"Minecraft Mob Database",description:"Browse Minecraft mobs with health, type, drops and behavior."};
-export default function Page(){return <main className="toolPage"><div className="wrap"><div className="toolIntro"><h1>Minecraft Mob Database</h1><p>Quick mob references linked to the Mob Generator.</p></div><div className="toolGrid">{mobs.map(x=><a className="toolCard" href={"/mobs/"+x.id} key={x.id}><span className="pill">{x.type}</span><h3>{x.name}</h3><p>{x.health} health · {x.drops}</p><span className="go">View mob →</span></a>)}</div></div></main>}
