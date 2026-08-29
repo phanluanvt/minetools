@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 import ToolSearch from "../components/ToolSearch";
 const tools=[
 ["✦","Title Generator","Build /title commands with subtitle, timing and colors.","/title-generator"],
