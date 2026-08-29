@@ -1,0 +1,3 @@
+import {items} from "../../data/reference";
+export const metadata={title:"Minecraft Item Database",description:"Browse Minecraft item IDs, stack sizes, recipes and common uses."};
+export default function Page(){return <main className="toolPage"><div className="wrap"><div className="toolIntro"><h1>Minecraft Item Database</h1><p>Browse starter item reference pages with stable semantic URLs.</p></div><div className="toolGrid">{items.map(x=><a className="toolCard" href={"/items/"+x.id} key={x.id}><span className="pill">{x.cat}</span><h3>{x.name}</h3><p>Stack: {x.stack} · {x.renewable?"Renewable":"Non-renewable"}</p><span className="go">View item →</span></a>)}</div></div></main>}
