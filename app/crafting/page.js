@@ -1,0 +1,12 @@
+"use client";
+import {useMemo,useState} from "react";
+const recipes=[
+["Crafting Table","utility",["oak_planks","oak_planks","","oak_planks","oak_planks","","","",""],"Crafting Table"],
+["Chest","utility",["oak_planks","oak_planks","oak_planks","oak_planks","","oak_planks","oak_planks","oak_planks","oak_planks"],"Chest"],
+["Furnace","utility",["cobblestone","cobblestone","cobblestone","cobblestone","","cobblestone","cobblestone","cobblestone","cobblestone"],"Furnace"],
+["Diamond Pickaxe","tools",["diamond","diamond","diamond","","stick","","","stick",""],"Diamond Pickaxe"],
+["Diamond Sword","combat",["","diamond","","","diamond","","","stick",""],"Diamond Sword"],
+["Piston","redstone",["oak_planks","oak_planks","oak_planks","cobblestone","iron_ingot","cobblestone","cobblestone","redstone","cobblestone"],"Piston"],
+["Beacon","utility",["glass","glass","glass","glass","nether_star","glass","obsidian","obsidian","obsidian"],"Beacon"]
+];
+export default function Page(){const [q,setQ]=useState(""),[cat,setCat]=useState("all"),[selected,setSelected]=useState(recipes[0]);const list=useMemo(()=>recipes.filter(r=>(cat==="all"||r[1]===cat)&&r[0].toLowerCase().includes(q.toLowerCase())),[q,cat]);return <main className="toolPage"><div className="wrap"><div className="crumb"><a href="/">MineTools</a> / Crafting Recipes</div><div className="toolIntro"><h1>Minecraft Crafting Recipes</h1><p>Search common Minecraft recipes and inspect the 3×3 crafting grid.</p></div><div className="workspace"><section className="panel"><div className="row"><div className="field"><label>Search recipes</label><input value={q} onChange={e=>setQ(e.target.value)} placeholder="Diamond Sword"/></div><div className="field"><label>Category</label><select value={cat} onChange={e=>setCat(e.target.value)}><option value="all">All</option><option>utility</option><option>tools</option><option>combat</option><option>redstone</option></select></div></div>{list.map(r=><button className="recipeButton" key={r[0]} onClick={()=>setSelected(r)}>{r[0]}<small>{r[1]}</small></button>)}</section><section className="panel"><h2>{selected[0]}</h2><div className="craftGrid">{selected[2].map((x,i)=><div key={i}>{x||"—"}</div>)}</div><p><strong>Result:</strong> {selected[3]}</p></section></div><section className="help"><h2>Minecraft crafting recipe database</h2><p>This searchable recipe database is being expanded into version-aware item and recipe pages with semantic URLs and internal links.</p></section></div></main>}
