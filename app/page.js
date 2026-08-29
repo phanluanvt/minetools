@@ -1,8 +1,45 @@
 export const dynamic="force-dynamic";export const revalidate=0;
 import ToolSearch from "../components/ToolSearch";
-const groups=[
-["Generators",[["☠","Mob Generator","Summon mobs, spawn eggs and spawners.","/mob-generator"],["🧪","Potion Generator","Build effect commands and potion settings.","/potion-generator"],["🎆","Firework Generator","Configure rocket shapes, colors and effects.","/firework-generator"],["⚑","Banner Generator","Design banner colors and patterns.","/banner-generator"],["🛡","Shield Generator","Create patterned Minecraft shields.","/shield-generator"],["🎨","Armor Color","Generate dyed leather armor colors.","/armor-color"]]],
-["Commands",[["💬","Tellraw Generator","Create JSON chat commands.","/tellraw-generator"],["✦","Title Generator","Build title and subtitle commands.","/title-generator"],["◎","Target Selector","Build advanced entity/player selectors.","/target-selector"],["⚔","Enchant Command","Generate enchant commands.","/enchant-generator"],["▤","Sign Generator","Create formatted sign data.","/sign-generator"],["📖","Book Generator","Build written book commands.","/book-generator"],["{}","JSON Text","Create reusable JSON text components.","/json-text-generator"]]],
-["Calculators & Data",[["⌖","Coordinate Calculator","Overworld, Nether, chunks and regions.","/coordinate-calculator"],["✧","Enchantment Calculator","Plan enchantments by item and level.","/enchant-calculator"],["▦","Crafting Recipes","Search a visual recipe database.","/crafting"],["§","Color Codes","Minecraft formatting color reference.","/color-codes"],["◆","Beacon Color Mixer","Mix beacon beam colors.","/beacon-color"],["🌎","Flat World Generator","Create superflat world presets.","/flat-world-generator"],["👤","Skin Grabber","Player skin lookup foundation.","/skin-grabber"],["▤","Server MOTD","Build colored server MOTDs.","/motd-generator"],["◇","Item Database","Browse item IDs, recipes and uses.","/items"],["☠","Mob Database","Browse mob health, drops and behavior.","/mobs"],["⚙","Loot Table","Build starter datapack loot JSON.","/loot-table-generator"],["▦","Recipe Database","Browse stable recipe reference pages.","/recipes"],["✚","Custom Crafting","Create shaped datapack recipe JSON.","/custom-crafting"]]]
+const sections=[
+["Crafting & Visual Tools",[
+["▦","Crafting Recipes","Find recipes quickly with a 3×3 grid.","/crafting"],
+["✚","Custom Crafting","Create shaped datapack recipe JSON.","/custom-crafting"],
+["🎆","Firework Crafting","Build rockets with colors, shape, trail and flicker.","/firework-generator"],
+["⚑","Banner Generator","Build layered banner patterns.","/banner-generator"],
+["🛡","Shield Generator","Create banner-style shield designs.","/shield-generator"],
+["🎨","Armor Color","Generate dyed leather armor colors.","/armor-color"],
+["◆","Beacon Color","Mix beacon beam colors.","/beacon-color"]
+]],
+["World & Calculation",[
+["🌎","Flat World Generator","Build custom superflat layers and biome presets.","/flat-world-generator"],
+["⌖","Coordinate Calculator","Overworld, Nether, chunk and region conversion.","/coordinate-calculator"],
+["✧","Enchant Calculator","Plan enchantments, levels and conflicts.","/enchant-calculator"],
+["👤","Skin Grabber","Validate Minecraft usernames for skin lookup.","/skin-grabber"]
+]],
+["Commands & Data Generators",[
+["☠","Mob Generator","Summon mobs, spawn eggs, spawners and custom entity data.","/mob-generator"],
+["🧪","Custom Potions","Generate effects and custom potion item data.","/potion-generator"],
+["⚙","Loot Tables","Build starter loot table JSON for datapacks.","/loot-table-generator"],
+["◎","Target Selector","Build advanced @e, @a and player selectors.","/target-selector"],
+["§","Color Codes","Minecraft text and formatting code reference.","/color-codes"],
+["{}","JSON Text Component","Build styled JSON text with click and hover events.","/json-text-generator"],
+["✦","Title Generator","Create title, subtitle and timing commands.","/title-generator"],
+["▤","Sign Generator","Generate custom sign text data.","/sign-generator"],
+["📖","Book Editor","Create written book commands and pages.","/book-generator"],
+["💬","Tellraw Editor","Create formatted JSON chat commands.","/tellraw-generator"],
+["▤","Server MOTD","Build custom Minecraft server MOTD text.","/motd-generator"],
+["⚔","Enchant Command","Generate quick /enchant commands.","/enchant-generator"]
+]]
 ];
-export default function Home(){const count=groups.reduce((n,g)=>n+g[1].length,0);return <main><section className="hero"><div className="wrap"><span className="badge">FREE MINECRAFT UTILITIES</span><h1>Build commands.<br/>Craft smarter.</h1><p>Fast Minecraft generators, calculators and references for Java and Bedrock players, server owners and map makers.</p><ToolSearch/><div className="heroActions"><a className="button primary" href="#tools">Explore tools</a><a className="button" href="/mob-generator">Try Mob Generator</a></div><div className="stats"><div className="stat"><b>{count}</b><span>tool pages</span></div><div className="stat"><b>2</b><span>editions foundation</span></div><div className="stat"><b>100%</b><span>mobile friendly</span></div></div></div></section><section className="section" id="tools"><div className="wrap">{groups.map(g=><div className="toolGroup" key={g[0]}><div className="sectionHead"><div><h2>{g[0]}</h2><p>Focused utilities with crawlable URLs and reusable UI.</p></div></div><div className="toolGrid">{g[1].map(t=><a className="toolCard" href={t[3]} key={t[1]}><div><span className="toolIcon">{t[0]}</span><span className="pill">Live</span></div><h3>{t[1]}</h3><p>{t[2]}</p><span className="go">Open tool →</span></a>)}</div></div>)}</div></section><section className="section alt" id="about"><div className="wrap help"><h2>Built as a Minecraft utility platform</h2><p>MineTools is moving from standalone generators toward shared Minecraft datasets, edition/version-aware output, recipe and item databases, reusable editors and shareable creations. SEO pages are designed around genuine tool and reference value rather than mass-produced thin pages.</p></div></section></main>}
+export default function Home(){const count=sections.reduce((n,s)=>n+s[1].length,0);return <main className="directoryHome">
+ <section className="compactHero"><div className="wrap">
+  <div className="homeTitleRow"><div><h1>Minecraft Tools</h1><h2>Minecraft crafting, generators, calculators and much more!</h2></div><a className="communityButton" href="/community">Community Content →</a></div>
+  <p className="welcome">Welcome to MineTools. Free browser-based tools for Minecraft Java and Bedrock players, map makers and server owners.</p>
+  <ToolSearch/>
+ </div></section>
+ <section className="directorySection" id="tools"><div className="wrap">
+  <div className="directoryMeta"><strong>{count} tools available</strong><span>No signup required to use generators</span></div>
+  {sections.map(s=><section className="directoryGroup" key={s[0]}><h2>{s[0]}</h2><div className="directoryGrid">{s[1].map(t=><a className="directoryItem" href={t[3]} key={t[1]}><span className="directoryIcon">{t[0]}</span><span className="directoryCopy"><strong>{t[1]}</strong><small>{t[2]}</small></span><span className="directoryArrow">›</span></a>)}</div></section>)}
+ </div></section>
+ <section className="homeBottom"><div className="wrap homeBottomGrid"><div><h2>Community Content</h2><p>Save drafts, remix creations and browse the community foundation.</p><a href="/community">Open Community →</a></div><div><h2>Minecraft Database</h2><p>Browse item, mob and recipe reference pages with stable SEO-friendly URLs.</p><a href="/items">Open Database →</a></div></div></section>
+</main>}
