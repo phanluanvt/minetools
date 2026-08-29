@@ -21,3 +21,24 @@
 .skinButtons a{display:block;background:#50aa00;color:#fff!important;padding:10px 14px;font-family:Impact,Arial Narrow,sans-serif;font-size:24px;letter-spacing:.5px;box-shadow:0 3px 5px rgba(0,0,0,.3);text-decoration:none!important}
 .skinButtons a:hover{background:#469800}
 .skinError{color:#b00020;font-weight:bold}.skinCredit{font-size:10px;color:#999;margin-top:16px}
+
+/* Benchmark-aligned visual pass */
+.mtTopStrip{position:absolute;left:0;right:0;top:0;height:5px;background:#2d2d2d}
+.mtHeader{height:112px;background:linear-gradient(#69bd43,#48a72f);border-bottom:0}
+.mtPage{width:1180px;grid-template-columns:255px 1fr;box-shadow:none}
+.mtSidebar{padding:0;background:#171717;border-right:7px solid #080808}
+.mtLogin{padding:10px 12px;background:#111;border-bottom:1px solid #262626}
+.mtBoxTitle{background:#222;border-left:4px solid #58b900;text-transform:uppercase;font-family:Impact,Arial Narrow,sans-serif;font-size:17px}
+.mtCommunityTitle{margin:0;background:#292929;border-left:0;border-bottom:3px solid #57b700;padding:12px;font-family:Impact,Arial Narrow,sans-serif;font-size:19px;letter-spacing:.4px}
+.mtMenu a{min-height:48px;display:flex;align-items:center;padding:11px 12px;background:#181818;border-bottom:1px solid #222;font-size:20px;line-height:22px}
+.mtMenu a:before{width:16px;height:16px;flex:0 0 16px;margin-right:11px;background:linear-gradient(135deg,#7cc83c,#3c791e);box-shadow:inset -3px -3px rgba(0,0,0,.25)}
+.mtContent{padding:28px 36px 45px;background:#fff}
+.mtHome{max-width:850px}.mtHome h1{font-family:Impact,Arial Narrow,sans-serif;font-size:34px;letter-spacing:.4px}.mtHome h2{font-size:15px}
+.mtCardGrid{grid-template-columns:repeat(3,1fr);gap:22px}
+.mtCard{padding:0;border:0;background:#151515;box-shadow:0 2px 5px rgba(0,0,0,.35)}
+.mtCardTitle{height:34px;line-height:34px;font-family:Impact,Arial Narrow,sans-serif;font-size:18px;text-transform:uppercase;background:#181818}
+.mtCardImage{height:155px}
+.toolIntro h1{font-family:Impact,Arial Narrow,sans-serif;text-transform:uppercase;font-size:30px}
+.panelTitle h2,.panel h2{font-family:Impact,Arial Narrow,sans-serif;text-transform:uppercase;font-size:18px}
+.copyBtn,.miniBtn{font-family:Impact,Arial Narrow,sans-serif;font-size:15px;letter-spacing:.3px;background:#51aa00}
+@media(max-width:900px){.mtPage{grid-template-columns:210px 1fr}.mtMenu a{font-size:16px;min-height:42px}.mtCardGrid{grid-template-columns:repeat(2,1fr)}}
