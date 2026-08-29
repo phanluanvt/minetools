@@ -13,7 +13,7 @@ const menu=[
 
 export default function RootLayout({children}){
  return <html lang="en"><body>
-  <header className="mtHeader">
+  <header className="mtHeader"><div className="mtTopStrip"></div>
    <div className="mtHeaderPattern"></div>
    <a className="mtLogo" href="/">
     <span className="mtLogoTop">MINECRAFT</span>
@@ -30,7 +30,7 @@ export default function RootLayout({children}){
       <a href="/saved">Forget password?</a>
       <a href="/saved">Create my account</a>
     </div>
-    <a className="mtCommunityTitle" href="/community">Community Content</a>
+    <a className="mtCommunityTitle" href="/community">COMMUNITY CONTENT</a>
     <nav className="mtMenu">
       {menu.map(([label,href])=><a href={href} key={label}>{label}</a>)}
     </nav>
