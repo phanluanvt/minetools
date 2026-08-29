@@ -3,44 +3,72 @@ import "./globals.css";
 export const metadata={
   metadataBase:new URL("https://minetools.io"),
   title:{default:"Minecraft Tools | MineTools",template:"%s | MineTools"},
-  description:"Free Minecraft crafting tools, generators and calculators.",
+  description:"Free Minecraft generators, crafting tools, calculators and command editors.",
   robots:{index:true,follow:true}
 };
 
-const menu=[
-["Skin stealer","/skin-grabber"],["Crafting","/crafting"],["Custom crafting","/custom-crafting"],["Flat world","/flat-world-generator"],["Enchant calculator","/enchant-calculator"],["Armor color","/armor-color"],["Firework crafting","/firework-generator"],["Banners crafting","/banner-generator"],["Banners gallery","/community"],["Shield crafting","/shield-generator"],["Shield gallery","/community"],["Mobs Generator","/mob-generator"],["Loot tables","/loot-table-generator"],["Custom potions","/potion-generator"],["Beacon color","/beacon-color"],["Coordinate Calculator","/coordinate-calculator"],["Target Selector","/target-selector"],["Text generators","/json-text-generator"],["Color codes","/color-codes"],["JSON Text Component","/json-text-generator"],["Title generator","/title-generator"],["Sign generator","/sign-generator"],["Book editor","/book-generator"],["/tellraw editor","/tellraw-generator"],["Custom server MOTD","/motd-generator"]
+const sideGroups=[
+  ["MAIN",[
+    ["🎏","Banner Generator","/banner-generator"],
+    ["🌍","Flat World Generator","/flat-world-generator"],
+    ["🧟","Mob Spawner","/mob-generator"],
+    ["🧰","Crafting Recipes","/crafting"],
+    ["🟧","Command Generator","/tellraw-generator"],
+    ["🧪","Potion Generator","/potion-generator"],
+    ["🎆","Fireworks Generator","/firework-generator"],
+    ["🧑","Skin Grabber","/skin-grabber"],
+    ["💎","Beacon Color","/beacon-color"],
+    ["🛡️","Armor Color","/armor-color"],
+    ["🧮","Coordinate Calculator","/coordinate-calculator"]
+  ]],
+  ["ADVANCED TOOLS",[
+    ["◎","Target Selector","/target-selector"],
+    ["§","Color Codes","/color-codes"],
+    ["{}","JSON Text Component","/json-text-generator"],
+    ["✦","Title Generator","/title-generator"],
+    ["▤","Sign Generator","/sign-generator"],
+    ["📖","Book Editor","/book-generator"],
+    ["💬","Tellraw Editor","/tellraw-generator"],
+    ["M","Custom Server MOTD","/motd-generator"],
+    ["⚙","Loot Tables","/loot-table-generator"]
+  ]],
+  ["OTHER",[
+    ["🗃","Item Database","/items"],
+    ["☠","Mob Database","/mobs"],
+    ["▦","Recipe Database","/recipes"],
+    ["👥","Community","/community"]
+  ]]
 ];
 
 export default function RootLayout({children}){
- return <html lang="en"><body>
-  <header className="mtHeader"><div className="mtTopStrip"></div>
-   <div className="mtHeaderPattern"></div>
-   <a className="mtLogo" href="/">
-    <span className="mtLogoTop">MINECRAFT</span>
-    <span className="mtLogoBottom">MINE TOOLS</span>
-   </a>
-  </header>
-  <div className="mtPage">
-   <aside className="mtSidebar">
-    <div className="mtLogin">
-      <div className="mtBoxTitle">Log in</div>
-      <input placeholder="Login" />
-      <input placeholder="Password" type="password"/>
-      <button type="button">Log in</button>
-      <a href="/saved">Forget password?</a>
-      <a href="/saved">Create my account</a>
+  return <html lang="en"><body>
+    <header className="refTopbar">
+      <a href="/" className="refBrand">
+        <span className="brandCube3d">▦</span>
+        <span><strong>MINETOOLS</strong><small>MINECRAFT TOOLS</small></span>
+      </a>
+      <div className="refLang">🇺🇸 EN ▾</div>
+    </header>
+
+    <div className="refShell">
+      <aside className="refSidebar">
+        <section className="loginPanel">
+          <h3>LOGIN</h3>
+          <input placeholder="Username or Email"/>
+          <input placeholder="Password" type="password"/>
+          <button type="button">LOGIN</button>
+          <div><a href="/saved">Register</a><a href="/saved">Lost Password?</a></div>
+        </section>
+
+        {sideGroups.map(([title,items])=><section className="sideGroup" key={title}>
+          <h4>{title}</h4>
+          {items.map(([icon,label,href])=><a className="sideNavItem" href={href} key={href}>
+            <span>{icon}</span><b>{label}</b><em>▾</em>
+          </a>)}
+        </section>)}
+      </aside>
+
+      <main className="refMain">{children}</main>
     </div>
-    <a className="mtCommunityTitle" href="/community">COMMUNITY CONTENT</a>
-    <nav className="mtMenu">
-      {menu.map(([label,href])=><a href={href} key={label}>{label}</a>)}
-    </nav>
-   </aside>
-   <main className="mtContent">{children}</main>
-  </div>
-  <footer className="mtFooter">
-    <div>© MineTools: Tools for Minecraft crafted for players ❤.</div>
-    <div><a href="/community">Community</a> — <a href="/items">Database</a> — <a href="/sitemap.xml">Sitemap</a></div>
-    <div>“Minecraft” is a trademark of Mojang. MineTools is not affiliated with Mojang or Microsoft.</div>
-  </footer>
- </body></html>
+  </body></html>
 }
